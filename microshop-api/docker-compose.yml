@@ -1,0 +1,15 @@
+version: "3.8"
+
+services:
+  microshop:
+    build: .
+    container_name: microshop-api
+    ports:
+      - "8012:8012"
+    restart: always
+    environment:
+      - SECRET_KEY=change-this-to-random-secret
+      # 用MySQL就取消下面注释
+      # - DATABASE_URL=mysql+pymysql://user:pass@mysql:3306/microshop
+    volumes:
+      - ./microshop.db:/app/microshop.db
